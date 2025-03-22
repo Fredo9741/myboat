@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Nos Bateaux - My Boat</title>
+    <meta name="keywords" content="bateaux océan indien, voiliers, catamarans, bateaux à moteur"/>
+    <meta name="description" content="Découvrez notre sélection de bateaux d'occasion et neufs dans l'océan Indien"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/bateaux.css" rel="stylesheet">
+</head>
+<body>
+    <main class="boats-listing">
+        <div class="container">
+            <div class="row">
+                <!-- Filtres -->
+                <div class="col-md-3">
+                    <div class="filters-panel">
+                        <h3>Filtres</h3>
+                        <form id="filters-form">
+                            <!-- Type de bateau -->
+                            <div class="filter-section">
+                                <h4>Type de bateau</h4>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="type" value="neuf"> Bateau neuf
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="type" value="monocoque"> Monocoque
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="type" value="multicoque"> Multicoque
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="type" value="moteur"> Bateau à moteur
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- État du bateau -->
+                            <div class="filter-section">
+                                <h4>État du bateau</h4>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="condition" value="neuf"> Neuf
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="condition" value="occasion"> Occasion
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="condition" value="renove"> Rénové
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Utilisation prévue -->
+                            <div class="filter-section">
+                                <h4>Utilisation prévue</h4>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="usage" value="plaisance"> Plaisance
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="usage" value="peche"> Pêche
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="usage" value="exploration"> Exploration
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="usage" value="charter"> Charter
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Capacité d'accueil -->
+                            <div class="filter-section">
+                                <h4>Capacité d'accueil</h4>
+                                <div class="capacity-range">
+                                    <input type="number" name="capacity_min" placeholder="Min" class="form-control" min="1" max="20">
+                                    <span>à</span>
+                                    <input type="number" name="capacity_max" placeholder="Max" class="form-control" min="1" max="20">
+                                </div>
+                            </div>
+
+                            <!-- Longueur -->
+                            <div class="filter-section">
+                                <h4>Longueur (en pieds)</h4>
+                                <div class="length-range">
+                                    <input type="number" name="length_min" placeholder="Min" class="form-control" min="0" max="100">
+                                    <span>à</span>
+                                    <input type="number" name="length_max" placeholder="Max" class="form-control" min="0" max="100">
+                                </div>
+                            </div>
+
+                            <!-- Prix -->
+                            <div class="filter-section">
+                                <h4>Prix (en €)</h4>
+                                <div class="price-range">
+                                    <input type="number" name="price_min" placeholder="Min" class="form-control" min="0">
+                                    <span>à</span>
+                                    <input type="number" name="price_max" placeholder="Max" class="form-control" min="0">
+                                </div>
+                            </div>
+
+                            <!-- Année -->
+                            <div class="filter-section">
+                                <h4>Année</h4>
+                                <div class="year-range">
+                                    <input type="number" name="year_min" placeholder="Min" class="form-control" min="1900" max="2024">
+                                    <span>à</span>
+                                    <input type="number" name="year_max" placeholder="Max" class="form-control" min="1900" max="2024">
+                                </div>
+                            </div>
+
+                            <!-- Équipement -->
+                            <div class="filter-section">
+                                <h4>Équipement</h4>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="equipment" value="climatisation"> Climatisation
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="equipment" value="gps"> GPS
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="equipment" value="solaire"> Électricité solaire
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="equipment" value="desalinisation"> Désalinisation
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Localisation -->
+                            <div class="filter-section">
+                                <h4>Localisation</h4>
+                                <select name="location" class="form-control">
+                                    <option value="">Toutes les îles</option>
+                                    <option value="reunion">La Réunion</option>
+                                    <option value="maurice">Maurice</option>
+                                    <option value="madagascar">Madagascar</option>
+                                    <option value="seychelles">Seychelles</option>
+                                    <option value="mayotte">Mayotte</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block">Appliquer les filtres</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Liste des bateaux -->
+                <div class="col-md-9">
+                    <div class="boats-grid">
+                        <!-- Bateau 1 -->
+                        <div class="boat-card">
+                            <div class="boat-image">
+                                <img src="assets/images/monocoque.jpeg" alt="Voilier monocoque">
+                            </div>
+                            <div class="boat-info">
+                                <h3>Voilier Monocoque 42 pieds</h3>
+                                <div class="boat-details">
+                                    <span><i class="fas fa-ruler"></i> 12.8m</span>
+                                    <span><i class="fas fa-calendar"></i> 2018</span>
+                                    <span><i class="fas fa-map-marker-alt"></i> La Réunion</span>
+                                </div>
+                                <div class="boat-price">
+                                    <span class="price">250 000 €</span>
+                                </div>
+                                <a href="#" class="btn btn-primary">Voir le détail</a>
+                            </div>
+                        </div>
+
+                        <!-- Bateau 2 -->
+                        <div class="boat-card">
+                            <div class="boat-image">
+                                <img src="assets/images/multicoque.jpeg" alt="Catamaran">
+                            </div>
+                            <div class="boat-info">
+                                <h3>Catamaran Lagoon 450</h3>
+                                <div class="boat-details">
+                                    <span><i class="fas fa-ruler"></i> 13.96m</span>
+                                    <span><i class="fas fa-calendar"></i> 2020</span>
+                                    <span><i class="fas fa-map-marker-alt"></i> Maurice</span>
+                                </div>
+                                <div class="boat-price">
+                                    <span class="price">450 000 €</span>
+                                </div>
+                                <a href="#" class="btn btn-primary">Voir le détail</a>
+                            </div>
+                        </div>
+
+                        <!-- Bateau 3 -->
+                        <div class="boat-card">
+                            <div class="boat-image">
+                                <img src="assets/images/catamoteur.jpeg" alt="Catamaran à moteur">
+                            </div>
+                            <div class="boat-info">
+                                <h3>Catamaran à moteur 50 pieds</h3>
+                                <div class="boat-details">
+                                    <span><i class="fas fa-ruler"></i> 15.24m</span>
+                                    <span><i class="fas fa-calendar"></i> 2021</span>
+                                    <span><i class="fas fa-map-marker-alt"></i> Madagascar</span>
+                                </div>
+                                <div class="boat-price">
+                                    <span class="price">750 000 €</span>
+                                </div>
+                                <a href="#" class="btn btn-primary">Voir le détail</a>
+                            </div>
+                        </div>
+
+                        <!-- Bateau 4 -->
+                        <div class="boat-card">
+                            <div class="boat-image">
+                                <img src="assets/images/bateauneuf.jpeg" alt="Voilier neuf">
+                            </div>
+                            <div class="boat-info">
+                                <h3>Voilier Bavaria 46</h3>
+                                <div class="boat-details">
+                                    <span><i class="fas fa-ruler"></i> 14.27m</span>
+                                    <span><i class="fas fa-calendar"></i> 2023</span>
+                                    <span><i class="fas fa-map-marker-alt"></i> La Réunion</span>
+                                </div>
+                                <div class="boat-price">
+                                    <span class="price">380 000 €</span>
+                                </div>
+                                <a href="#" class="btn btn-primary">Voir le détail</a>
+                            </div>
+                        </div>
+
+                        <!-- Bateau 5 -->
+                        <div class="boat-card">
+                            <div class="boat-image">
+                                <img src="assets/images/monocoque.jpeg" alt="Voilier monocoque">
+                            </div>
+                            <div class="boat-info">
+                                <h3>Voilier Beneteau Oceanis 41.1</h3>
+                                <div class="boat-details">
+                                    <span><i class="fas fa-ruler"></i> 12.43m</span>
+                                    <span><i class="fas fa-calendar"></i> 2019</span>
+                                    <span><i class="fas fa-map-marker-alt"></i> Seychelles</span>
+                                </div>
+                                <div class="boat-price">
+                                    <span class="price">280 000 €</span>
+                                </div>
+                                <a href="#" class="btn btn-primary">Voir le détail</a>
+                            </div>
+                        </div>
+
+                        <!-- Bateau 6 -->
+                        <div class="boat-card">
+                            <div class="boat-image">
+                                <img src="assets/images/multicoque.jpeg" alt="Catamaran">
+                            </div>
+                            <div class="boat-info">
+                                <h3>Catamaran Fountaine Pajot 44</h3>
+                                <div class="boat-details">
+                                    <span><i class="fas fa-ruler"></i> 13.28m</span>
+                                    <span><i class="fas fa-calendar"></i> 2022</span>
+                                    <span><i class="fas fa-map-marker-alt"></i> Maurice</span>
+                                </div>
+                                <div class="boat-price">
+                                    <span class="price">520 000 €</span>
+                                </div>
+                                <a href="#" class="btn btn-primary">Voir le détail</a>
+                            </div>
+                        </div>
+
+                        <!-- Bateau 7 -->
+                        <div class="boat-card">
+                            <div class="boat-image">
+                                <img src="assets/images/catamoteur.jpeg" alt="Catamaran à moteur">
+                            </div>
+                            <div class="boat-info">
+                                <h3>Catamaran à moteur 60 pieds</h3>
+                                <div class="boat-details">
+                                    <span><i class="fas fa-ruler"></i> 18.29m</span>
+                                    <span><i class="fas fa-calendar"></i> 2020</span>
+                                    <span><i class="fas fa-map-marker-alt"></i> Mayotte</span>
+                                </div>
+                                <div class="boat-price">
+                                    <span class="price">950 000 €</span>
+                                </div>
+                                <a href="#" class="btn btn-primary">Voir le détail</a>
+                            </div>
+                        </div>
+
+                        <!-- Bateau 8 -->
+                        <div class="boat-card">
+                            <div class="boat-image">
+                                <img src="assets/images/bateauneuf.jpeg" alt="Voilier neuf">
+                            </div>
+                            <div class="boat-info">
+                                <h3>Voilier Jeanneau 54</h3>
+                                <div class="boat-details">
+                                    <span><i class="fas fa-ruler"></i> 16.76m</span>
+                                    <span><i class="fas fa-calendar"></i> 2023</span>
+                                    <span><i class="fas fa-map-marker-alt"></i> La Réunion</span>
+                                </div>
+                                <div class="boat-price">
+                                    <span class="price">680 000 €</span>
+                                </div>
+                                <a href="#" class="btn btn-primary">Voir le détail</a>
+                            </div>
+                        </div>
+
+                        <!-- Bateau 9 -->
+                        <div class="boat-card">
+                            <div class="boat-image">
+                                <img src="assets/images/monocoque.jpeg" alt="Voilier monocoque">
+                            </div>
+                            <div class="boat-info">
+                                <h3>Voilier Hanse 460</h3>
+                                <div class="boat-details">
+                                    <span><i class="fas fa-ruler"></i> 14.27m</span>
+                                    <span><i class="fas fa-calendar"></i> 2021</span>
+                                    <span><i class="fas fa-map-marker-alt"></i> Madagascar</span>
+                                </div>
+                                <div class="boat-price">
+                                    <span class="price">420 000 €</span>
+                                </div>
+                                <a href="#" class="btn btn-primary">Voir le détail</a>
+                            </div>
+                        </div>
+
+                        <!-- Bateau 10 -->
+                        <div class="boat-card">
+                            <div class="boat-image">
+                                <img src="assets/images/multicoque.jpeg" alt="Catamaran">
+                            </div>
+                            <div class="boat-info">
+                                <h3>Catamaran Bali 4.8</h3>
+                                <div class="boat-details">
+                                    <span><i class="fas fa-ruler"></i> 14.85m</span>
+                                    <span><i class="fas fa-calendar"></i> 2022</span>
+                                    <span><i class="fas fa-map-marker-alt"></i> Seychelles</span>
+                                </div>
+                                <div class="boat-price">
+                                    <span class="price">580 000 €</span>
+                                </div>
+                                <a href="#" class="btn btn-primary">Voir le détail</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/bateaux.js"></script>
+</body>
+</html> 

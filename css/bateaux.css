@@ -1,0 +1,152 @@
+/* Styles pour la page de liste des bateaux */
+.boats-listing {
+    padding: 40px 0;
+    background-color: #f8f9fa;
+}
+
+/* Panel des filtres */
+.filters-panel {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.filters-panel h3 {
+    color: #023f86;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #fdbb27;
+}
+
+.filter-section {
+    margin-bottom: 25px;
+}
+
+.filter-section h4 {
+    color: #023f86;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.filter-section .checkbox {
+    margin-bottom: 10px;
+}
+
+.filter-section .checkbox label {
+    color: #666;
+    font-weight: normal;
+}
+
+.filter-section input[type="number"] {
+    width: 45%;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.filter-section span {
+    color: #666;
+}
+
+.filter-section select {
+    width: 100%;
+}
+
+/* Grille des bateaux */
+.boats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Carte de bateau */
+.boat-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.boat-card:hover {
+    transform: translateY(-5px);
+}
+
+.boat-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.boat-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.boat-card:hover .boat-image img {
+    transform: scale(1.05);
+}
+
+.boat-info {
+    padding: 20px;
+}
+
+.boat-info h3 {
+    color: #023f86;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.boat-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.boat-details span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.boat-details i {
+    color: #fdbb27;
+}
+
+.boat-price {
+    margin-bottom: 15px;
+}
+
+.boat-price .price {
+    color: #023f86;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.boat-card .btn-primary {
+    width: 100%;
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .boats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .filter-section input[type="number"] {
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+    .filter-section span {
+        display: block;
+        text-align: center;
+        margin: 5px 0;
+    }
+} 

@@ -1,0 +1,222 @@
+.contact-page {
+    padding: 40px 0;
+}
+
+.contact-page h1 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 2em;
+}
+
+.contact-page .lead {
+    margin-bottom: 40px;
+    color: #666;
+    font-size: 1.1em;
+}
+
+/* Formulaire de contact */
+.contact-form {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.contact-form h2 {
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 1.8em;
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    font-weight: 600;
+    color: #555;
+    font-size: 1em;
+}
+
+.contact-form .form-control {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 12px;
+    font-size: 1em;
+    height: auto;
+}
+
+.contact-form textarea.form-control {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-form button {
+    padding: 12px 30px;
+    font-size: 1.1em;
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Informations de contact */
+.contact-details {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.contact-details h2 {
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 1.8em;
+}
+
+.info-block {
+    margin-bottom: 30px;
+}
+
+.info-block h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.info-block p {
+    margin-bottom: 12px;
+    color: #666;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+}
+
+.info-block i {
+    width: 20px;
+    margin-right: 10px;
+    color: #007bff;
+    font-size: 1.1em;
+}
+
+.social-links {
+    margin-top: 30px;
+}
+
+.social-links h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.social-link {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    background: #f8f9fa;
+    border-radius: 50%;
+    margin-right: 15px;
+    color: #333;
+    transition: all 0.3s ease;
+    font-size: 1.2em;
+}
+
+.social-link:hover {
+    background: #007bff;
+    color: #fff;
+    text-decoration: none;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-page {
+        padding: 20px 0;
+    }
+
+    .contact-page h1 {
+        font-size: 1.8em;
+        margin-bottom: 15px;
+    }
+
+    .contact-page .lead {
+        font-size: 1em;
+        margin-bottom: 30px;
+    }
+
+    .contact-form {
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+
+    .contact-form h2 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+
+    .contact-form .form-group {
+        margin-bottom: 15px;
+    }
+
+    .contact-form label {
+        font-size: 0.95em;
+    }
+
+    .contact-form .form-control {
+        padding: 10px;
+        font-size: 0.95em;
+    }
+
+    .contact-form textarea.form-control {
+        min-height: 100px;
+    }
+
+    .contact-form button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+
+    .contact-details {
+        padding: 20px;
+    }
+
+    .contact-details h2 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+
+    .info-block {
+        margin-bottom: 20px;
+    }
+
+    .info-block h3 {
+        font-size: 1.1em;
+        margin-bottom: 10px;
+    }
+
+    .info-block p {
+        font-size: 0.95em;
+        margin-bottom: 8px;
+    }
+
+    .info-block i {
+        font-size: 1em;
+    }
+
+    .social-links {
+        margin-top: 20px;
+    }
+
+    .social-links h3 {
+        font-size: 1.1em;
+        margin-bottom: 10px;
+    }
+
+    .social-link {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        margin-right: 10px;
+        font-size: 1.1em;
+    }
+} 

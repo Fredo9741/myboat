@@ -1,0 +1,21 @@
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Fichiers d'éditeur
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Fichiers de dépendances
+node_modules/
+vendor/
+
+# Fichiers de cache
+.cache/
+.temp/
+
+# Fichiers de configuration local
+.env
+.env.local 

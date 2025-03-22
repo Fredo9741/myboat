@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Contact - My Boat</title>
+    <meta name="keywords" content="contact myboat, océan indien, réunion, maurice, madagascar, seychelles, mayotte"/>
+    <meta name="description" content="Contactez My Boat pour toute question concernant l'achat ou la vente de bateaux dans l'océan Indien"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/contact.css" rel="stylesheet">
+</head>
+<body>
+    <main class="contact-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Contactez-nous</h1>
+                    <p class="lead">Notre équipe est à votre disposition pour répondre à toutes vos questions concernant l'achat ou la vente de bateaux dans l'océan Indien.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Formulaire de contact -->
+                <div class="col-md-8">
+                    <div class="contact-form">
+                        <h2>Envoyez-nous un message</h2>
+                        <form id="contact-form">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="nom">Nom *</label>
+                                        <input type="text" class="form-control" id="nom" name="nom" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="prenom">Prénom *</label>
+                                        <input type="text" class="form-control" id="prenom" name="prenom" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="email">Email *</label>
+                                        <input type="email" class="form-control" id="email" name="email" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="telephone">Téléphone</label>
+                                        <input type="tel" class="form-control" id="telephone" name="telephone">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="sujet">Sujet *</label>
+                                <select class="form-control" id="sujet" name="sujet" required>
+                                    <option value="">Sélectionnez un sujet</option>
+                                    <option value="achat">Achat de bateau</option>
+                                    <option value="vente">Vente de bateau</option>
+                                    <option value="information">Demande d'information</option>
+                                    <option value="autre">Autre</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Envoyer le message</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Informations de contact -->
+                <div class="col-md-4">
+                    <div class="contact-details">
+                        <h2>Nos coordonnées</h2>
+                        <div class="info-block">
+                            <h3>La Réunion</h3>
+                            <p><i class="fas fa-user"></i> Ghislain PAILLOT</p>
+                            <p><i class="fas fa-phone"></i> +262 692 706 610</p>
+                            <p><i class="fas fa-envelope"></i> ghislain@myboat.re</p>
+                        </div>
+
+                        <div class="info-block">
+                            <h3>Madagascar</h3>
+                            <p><i class="fas fa-user"></i> Quentin COQUEMA</p>
+                            <p><i class="fas fa-phone"></i> +262 693 134 587</p>
+                            <p><i class="fas fa-envelope"></i> quentin@myboat.re</p>
+                        </div>
+
+                        <div class="info-block">
+                            <h3>Adresse</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> 123 Rue des Bateaux<br>97400 Saint-Denis<br>La Réunion</p>
+                        </div>
+
+                        <div class="social-links">
+                            <h3>Suivez-nous</h3>
+                            <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html> 
