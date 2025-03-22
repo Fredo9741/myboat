@@ -5,11 +5,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileFiltersBtn = document.getElementById('mobileFilterButton');
     const filtersContainer = document.getElementById('filtersContainer');
     const filtersForm = document.getElementById('filters-form');
+    const boatsContainer = document.querySelector('.col-md-9');
     
     // Vérification des éléments
     console.log("Bouton filtres trouvé:", mobileFiltersBtn !== null);
     console.log("Container filtres trouvé:", filtersContainer !== null);
     console.log("Formulaire filtres trouvé:", filtersForm !== null);
+    console.log("Container bateaux trouvé:", boatsContainer !== null);
+    
+    // S'assurer que les bateaux sont visibles dès le chargement
+    if (boatsContainer) {
+        boatsContainer.style.display = 'block';
+    }
     
     // Gestion du bouton Filtres sur mobile
     if (mobileFiltersBtn && filtersContainer) {
@@ -28,20 +35,12 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 mobileFiltersBtn.innerHTML = '<i class="fas fa-filter"></i> Filtres';
             }
-        });
-        
-        // Ajout d'un clic dynamique pour tester le bouton
-        console.log("Test de clic automatique sur le bouton filtres");
-        setTimeout(function() {
-            mobileFiltersBtn.click();
-            console.log("Clic automatique effectué");
             
-            // On referme après 500ms
-            setTimeout(function() {
-                mobileFiltersBtn.click();
-                console.log("Refermeture automatique effectuée");
-            }, 500);
-        }, 1000);
+            // S'assurer que les bateaux restent visibles
+            if (boatsContainer) {
+                boatsContainer.style.display = 'block';
+            }
+        });
     }
     
     // Gestion du formulaire de filtres
@@ -88,6 +87,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     boatsGrid.style.opacity = '1';
                     boatsGrid.style.pointerEvents = 'auto';
                 }, 1000);
+            }
+            
+            // S'assurer que les bateaux sont visibles après l'application des filtres
+            if (boatsContainer) {
+                boatsContainer.style.display = 'block';
             }
         });
     }

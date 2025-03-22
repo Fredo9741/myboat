@@ -202,8 +202,30 @@
         margin-bottom: 20px;
     }
     
-    /* Ajuster la largeur des colonnes sur mobile */
+    /* S'assurer que la colonne des bateaux est toujours visible */
     .col-md-9 {
+        display: block !important;
         width: 100%;
+        clear: both;
+        float: none;
+        margin-top: 20px;
+    }
+    
+    /* Réorganiser les éléments pour mobile */
+    .boats-listing .row {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .boats-listing .mobile-filters-button-container {
+        order: 1;
+    }
+    
+    .boats-listing .col-md-3 {
+        order: 2;
+    }
+    
+    .boats-listing .col-md-9 {
+        order: 3;
     }
 } 
