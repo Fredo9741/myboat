@@ -219,4 +219,89 @@
         margin-right: 10px;
         font-size: 1.1em;
     }
+}
+
+/* Styles pour assurer l'affichage correct en mode desktop */
+@media (min-width: 769px) {
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -15px;
+        margin-right: -15px;
+        clear: both;
+        overflow: hidden;
+    }
+    
+    .col-md-8 {
+        width: 66.66666667%;
+        float: left;
+        padding-left: 15px;
+        padding-right: 15px;
+        position: relative;
+        min-height: 1px;
+        box-sizing: border-box;
+    }
+    
+    .col-md-4 {
+        width: 33.33333333%;
+        float: left;
+        padding-left: 15px;
+        padding-right: 15px;
+        position: relative;
+        min-height: 1px;
+        box-sizing: border-box;
+    }
+    
+    .col-md-6 {
+        width: 50%;
+        float: left;
+        padding-left: 15px;
+        padding-right: 15px;
+        position: relative;
+        min-height: 1px;
+        box-sizing: border-box;
+    }
+    
+    .col-md-12 {
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+        position: relative;
+        min-height: 1px;
+        box-sizing: border-box;
+    }
+    
+    .contact-form {
+        height: 100%;
+        margin-right: 0;
+    }
+    
+    .contact-details {
+        height: 100%;
+    }
+    
+    /* Correction pour le header et footer */
+    body > header,
+    body > footer {
+        display: block !important;
+    }
+    
+    /* Forcer l'affichage horizontal des colonnes */
+    .contact-page .row > [class*='col-'] {
+        display: block;
+    }
+    
+    /* S'assurer que le formulaire et les coordonnées sont côte à côte */
+    .contact-page .container > .row:nth-child(2) {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    /* Reset de toutes les propriétés qui pourraient interférer */
+    .contact-page main,
+    .contact-page .container,
+    .contact-page .row,
+    .contact-page [class*='col-'] {
+        max-width: 100%;
+    }
 } 
