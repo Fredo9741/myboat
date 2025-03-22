@@ -422,18 +422,121 @@ a .logo {
     margin-top: 20px;
 }
 
+/* Footer mobile accordéon */
+.footer-mobile-accordion {
+    display: none;
+    width: 100%;
+}
+
+.accordion-section {
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.accordion-title {
+    cursor: pointer;
+    position: relative;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-title i {
+    transition: transform 0.3s ease;
+}
+
+.accordion-section.active .accordion-title i {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding-left: 10px;
+}
+
+.accordion-section.active .accordion-content {
+    max-height: 300px;
+}
+
+/* Boutons de contact */
+.contact-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.contact-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 15px;
+    border-radius: 4px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-button {
+    background-color: #25D366;
+}
+
+.phone-button {
+    background-color: #023f86;
+}
+
+.email-button {
+    background-color: #e74c3c;
+}
+
+.contact-button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    color: white;
+    text-decoration: none;
+}
+
+.contact-button i {
+    font-size: 1.2em;
+}
+
+/* Pied de page légal */
+.footer-legal {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-links {
+    margin-bottom: 10px;
+}
+
+.footer-links .separator {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    margin: 0 15px;
+    vertical-align: middle;
+}
+
+.footer-copyright {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9em;
+}
+
 .vcard {
     margin-top: 20px;
 }
 
 .vcard img {
     margin-bottom: 20px;
-    filter: brightness(0) invert(1);
-}
-
-.vcard .tel {
-    display: block;
-    margin-bottom: 10px;
 }
 
 /* Responsive */
@@ -601,20 +704,53 @@ a .logo {
     }
 
     .footerbar {
-        padding: 40px 0 20px;
+        padding: 30px 0 20px;
     }
 
     .footerbar .row {
         flex-direction: column;
-        gap: 20px;
+        gap: 0;
     }
 
     .footerbar h4 {
         font-size: 16px;
+        margin-bottom: 15px;
     }
 
     .footerbar .navbar-link {
         font-size: 0.9em;
+        padding: 8px 0;
+    }
+    
+    /* Afficher l'accordéon et masquer les sections desktop */
+    .footer-mobile-accordion {
+        display: block;
+    }
+    
+    .footer-desktop {
+        display: none;
+    }
+    
+    .footer-contact {
+        margin-top: 30px;
+        text-align: center;
+    }
+    
+    .vcard img {
+        margin: 0 auto 20px;
+    }
+    
+    .contact-buttons {
+        margin: 0 auto;
+        max-width: 300px;
+    }
+    
+    .footer-legal {
+        margin-top: 20px;
+    }
+    
+    .footer-links, .footer-copyright {
+        line-height: 1.8;
     }
 }
 
