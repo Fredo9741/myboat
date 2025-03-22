@@ -1,9 +1,54 @@
 document.addEventListener('DOMContentLoaded', function() {
+    console.log("Document chargé, initialisation du script bateaux.js");
+    
+    // Utilisation des IDs pour plus de fiabilité
+    const mobileFiltersBtn = document.getElementById('mobileFilterButton');
+    const filtersContainer = document.getElementById('filtersContainer');
     const filtersForm = document.getElementById('filters-form');
     
+    // Vérification des éléments
+    console.log("Bouton filtres trouvé:", mobileFiltersBtn !== null);
+    console.log("Container filtres trouvé:", filtersContainer !== null);
+    console.log("Formulaire filtres trouvé:", filtersForm !== null);
+    
+    // Gestion du bouton Filtres sur mobile
+    if (mobileFiltersBtn && filtersContainer) {
+        console.log("Configuration du bouton filtres");
+        
+        // Ajouter un débogage au clic
+        mobileFiltersBtn.addEventListener('click', function(event) {
+            console.log("Bouton filtres cliqué");
+            event.preventDefault(); // Pour s'assurer qu'aucun comportement par défaut ne pose problème
+            
+            filtersContainer.classList.toggle('is-visible');
+            console.log("État du container:", filtersContainer.classList.contains('is-visible') ? "visible" : "caché");
+            
+            if (filtersContainer.classList.contains('is-visible')) {
+                mobileFiltersBtn.innerHTML = '<i class="fas fa-times"></i> Fermer';
+            } else {
+                mobileFiltersBtn.innerHTML = '<i class="fas fa-filter"></i> Filtres';
+            }
+        });
+        
+        // Ajout d'un clic dynamique pour tester le bouton
+        console.log("Test de clic automatique sur le bouton filtres");
+        setTimeout(function() {
+            mobileFiltersBtn.click();
+            console.log("Clic automatique effectué");
+            
+            // On referme après 500ms
+            setTimeout(function() {
+                mobileFiltersBtn.click();
+                console.log("Refermeture automatique effectuée");
+            }, 500);
+        }, 1000);
+    }
+    
+    // Gestion du formulaire de filtres
     if (filtersForm) {
         filtersForm.addEventListener('submit', function(e) {
             e.preventDefault();
+            console.log("Formulaire soumis");
             
             // Récupérer les valeurs des filtres
             const formData = new FormData(filtersForm);
@@ -24,8 +69,13 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             
             // Ici, vous pouvez ajouter la logique pour filtrer les bateaux
-            // Par exemple, faire une requête AJAX vers votre API
             console.log('Filtres appliqués:', filters);
+            
+            // Fermer le panel des filtres sur mobile
+            if (window.innerWidth <= 768 && filtersContainer.classList.contains('is-visible')) {
+                filtersContainer.classList.remove('is-visible');
+                mobileFiltersBtn.innerHTML = '<i class="fas fa-filter"></i> Filtres';
+            }
             
             // Pour l'exemple, on simule un chargement
             const boatsGrid = document.querySelector('.boats-grid');

@@ -17,8 +17,15 @@
     <main class="boats-listing">
         <div class="container">
             <div class="row">
+                <!-- Bouton Filtres pour mobile -->
+                <div class="col-xs-12 mobile-filters-button-container">
+                    <button id="mobileFilterButton" type="button" class="mobile-filters-btn">
+                        <i class="fas fa-filter"></i> Filtres
+                    </button>
+                </div>
+                
                 <!-- Filtres -->
-                <div class="col-md-3">
+                <div id="filtersContainer" class="col-md-3">
                     <div class="filters-panel">
                         <h3>Filtres</h3>
                         <form id="filters-form">
