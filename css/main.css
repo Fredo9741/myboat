@@ -353,6 +353,76 @@ a .logo {
     background-color: var(--background-color);
 }
 
+/* Testimonials Section */
+.testimonials-section {
+    padding: 80px 0;
+    background-color: var(--background-color);
+}
+
+.testimonials-section .section-title {
+    margin-bottom: 50px;
+    color: var(--primary-color);
+    font-size: 2.2em;
+}
+
+.testimonial-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 30px;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.testimonial-content {
+    flex-grow: 1;
+    margin-bottom: 20px;
+}
+
+.testimonial-content i {
+    color: var(--primary-color);
+    font-size: 24px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.testimonial-content p {
+    font-style: italic;
+    line-height: 1.7;
+    color: #555;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+    justify-content: center;
+}
+
+.testimonial-info {
+    text-align: center;
+}
+
+.testimonial-info h4 {
+    margin: 0 0 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.testimonial-info p {
+    margin: 0;
+    color: #777;
+    font-size: 14px;
+}
+
 /* Social Banner */
 .social-fluid-banner {
     background-color: var(--primary-color);
@@ -503,6 +573,57 @@ a .logo {
 
 .contact-button i {
     font-size: 1.2em;
+}
+
+/* Informations de contact */
+.contact-info {
+    margin-top: 15px;
+}
+
+.info-block {
+    margin-bottom: 15px;
+}
+
+.info-block p {
+    margin: 5px 0;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.info-block p i {
+    margin-right: 10px;
+    width: 16px;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-link {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-align: center;
+    line-height: 36px;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.mt-3 {
+    margin-top: 15px;
 }
 
 /* Pied de page légal */
@@ -703,6 +824,25 @@ a .logo {
         font-size: 3em;
     }
 
+    .testimonials-section {
+        padding: 40px 0;
+    }
+    
+    .testimonials-section .section-title {
+        font-size: 1.8em;
+        margin-bottom: 30px;
+    }
+    
+    .testimonial-card {
+        margin-bottom: 30px;
+        padding: 20px;
+    }
+    
+    .testimonial-content i {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
     .footerbar {
         padding: 30px 0 20px;
     }
@@ -743,6 +883,19 @@ a .logo {
     .contact-buttons {
         margin: 0 auto;
         max-width: 300px;
+    }
+    
+    .social-links {
+        justify-content: center;
+        margin-top: 20px;
+    }
+    
+    .info-block {
+        text-align: center;
+    }
+    
+    .info-block p {
+        justify-content: center;
     }
     
     .footer-legal {
