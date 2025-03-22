@@ -1,0 +1,10 @@
+[33mcommit 227adcc42c982ec94c4fb777607f20d1bc5b9d9e[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdynamic[m[33m, [m[1;31morigin/dynamic[m[33m)[m
+Author: Fredo9741 <fredericpaillot@gmail.com>
+Date:   Sat Mar 22 21:55:37 2025 +0400
+
+    Correction de la page Contact: affichage du header/footer et disposition côte à côte du formulaire et des coordonnées en mode desktop
+
+M	contact.html
+M	css/contact.css
+M	css/main.css
+M	js/components.js

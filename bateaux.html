@@ -13,19 +13,34 @@
     <link href="css/main.css" rel="stylesheet">
     <link href="css/bateaux.css" rel="stylesheet">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-    <!--[if lt IE 9]>
+    <style>
+    /* Style critique pour corriger l'affichage */
+    @media (min-width: 769px) {
+        .boats-listing .col-md-3 {
+            float: left;
+            width: 25%;
+        }
+        .boats-listing .col-md-9 {
+            float: left;
+            width: 75%;
+        }
+    }
+    </style>
 </head>
 <body>
     <main class="boats-listing">
         <div class="container">
-            <div class="row">
-                <!-- Bouton Filtres pour mobile -->
+            <!-- Bouton Filtres pour mobile uniquement -->
+            <div class="row visible-xs">
                 <div class="col-xs-12 mobile-filters-button-container">
                     <button id="mobileFilterButton" type="button" class="mobile-filters-btn">
                         <i class="fas fa-filter"></i> Filtres
                     </button>
                 </div>
-                
+            </div>
+
+            <!-- Contenu principal avec filtres et bateaux -->
+            <div class="row clearfix">
                 <!-- Filtres -->
                 <div id="filtersContainer" class="col-md-3">
                     <div class="filters-panel">

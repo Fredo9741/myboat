@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Détail du Bateau - My Boat</title>
+    <meta name="keywords" content="détail bateau, voilier, catamaran, bateau à moteur, océan indien"/>
+    <meta name="description" content="Informations détaillées sur ce bateau disponible dans l'océan Indien"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/bateau-detail.css" rel="stylesheet">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Contenu principal -->
+    <main class="boat-detail-page">
+        <div class="container">
+            <!-- Message de chargement -->
+            <div id="boat-loading" class="loading-overlay">
+                <div class="spinner">
+                    <i class="fas fa-spinner fa-spin fa-3x"></i>
+                    <p>Chargement des informations...</p>
+                </div>
+            </div>
+            
+            <!-- Message d'erreur -->
+            <div id="boat-error" class="error-message" style="display: none;">
+                <div class="alert alert-danger">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span id="error-text">Une erreur est survenue lors du chargement du bateau.</span>
+                </div>
+            </div>
+            
+            <!-- Détails du bateau -->
+            <div id="boat-detail" class="row" style="display: none;">
+                <div class="col-md-12">
+                    <a href="bateaux.html" class="btn btn-link back-link">
+                        <i class="fas fa-arrow-left"></i> Retour à la liste des bateaux
+                    </a>
+                    
+                    <h1 id="boat-name">Nom du bateau</h1>
+                    <div class="boat-price-tag">
+                        <span id="boat-price">Prix</span>
+                    </div>
+                    
+                    <!-- Galerie d'images -->
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div id="boat-gallery" class="carousel slide" data-ride="carousel">
+                                <!-- Indicateurs -->
+                                <ol id="carousel-indicators" class="carousel-indicators">
+                                    <li data-target="#boat-gallery" data-slide-to="0" class="active"></li>
+                                </ol>
+                                
+                                <!-- Contenu du carrousel -->
+                                <div id="carousel-inner" class="carousel-inner">
+                                    <div class="item active">
+                                        <img src="img/boats/default-boat.jpg" alt="Image par défaut">
+                                    </div>
+                                </div>
+                                
+                                <!-- Contrôles -->
+                                <a class="left carousel-control" href="#boat-gallery" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                </a>
+                                <a class="right carousel-control" href="#boat-gallery" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Caractéristiques principales -->
+                        <div class="col-md-4">
+                            <div class="boat-specs">
+                                <h3>Caractéristiques</h3>
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <th>Type</th>
+                                            <td id="boat-type">-</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Longueur</th>
+                                            <td id="boat-length">-</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Année</th>
+                                            <td id="boat-year">-</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Capacité</th>
+                                            <td id="boat-capacity">-</td>
+                                        </tr>
+                                        <tr>
+                                            <th>État</th>
+                                            <td id="boat-condition">-</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Utilisation</th>
+                                            <td id="boat-usage">-</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Localisation</th>
+                                            <td id="boat-location">-</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Port d'attache</th>
+                                            <td id="boat-port">-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <!-- Informations de contact -->
+                            <div class="contact-info">
+                                <h3>Contact</h3>
+                                <ul class="list-unstyled">
+                                    <li><strong>Nom:</strong> <span id="contact-name">-</span></li>
+                                    <li><strong>Email:</strong> <a id="contact-email" href="mailto:">-</a></li>
+                                    <li><strong>Téléphone:</strong> <a id="contact-phone" href="tel:">-</a></li>
+                                    <li><strong>Préférence:</strong> <span id="contact-preferred">-</span></li>
+                                </ul>
+                                <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#contactModal">
+                                    <i class="fas fa-envelope"></i> Contacter le vendeur
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Description et équipements -->
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="boat-description">
+                                <h3>Description</h3>
+                                <div id="boat-description-text" class="description-content">
+                                    <!-- La description sera insérée ici par JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="boat-equipment">
+                                <h3>Équipement</h3>
+                                <ul id="equipment-list" class="equipment-list">
+                                    <!-- Les équipements seront insérés ici par JavaScript -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Bateaux similaires -->
+                    <div class="similar-boats">
+                        <h3>Bateaux similaires</h3>
+                        <div id="similar-boats-container" class="row">
+                            <!-- Les bateaux similaires seront insérés ici par JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Modal de contact -->
+    <div class="modal fade" id="contactModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">Contacter le vendeur</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="contact-form">
+                        <input type="hidden" id="boat-id-input" name="boat_id">
+                        
+                        <div class="form-group">
+                            <label for="contact-name-input">Votre nom</label>
+                            <input type="text" class="form-control" id="contact-name-input" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-email-input">Votre email</label>
+                            <input type="email" class="form-control" id="contact-email-input" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-phone-input">Votre téléphone</label>
+                            <input type="tel" class="form-control" id="contact-phone-input" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-message-input">Votre message</label>
+                            <textarea class="form-control" id="contact-message-input" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <div class="alert alert-success" id="contact-success" style="display: none;">
+                            Message envoyé avec succès ! Le vendeur vous contactera bientôt.
+                        </div>
+                        
+                        <div class="alert alert-danger" id="contact-error" style="display: none;">
+                            Une erreur est survenue lors de l'envoi du message. Veuillez réessayer plus tard.
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-primary" id="send-message-btn">Envoyer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/bateau-detail.js"></script>
+</body>
+</html> 

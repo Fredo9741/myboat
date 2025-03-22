@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <title>Ajouter un Bateau - My Boat</title>
+    <title>Confiez-nous votre bateau - MyBoat</title>
     <meta name="keywords" content="ajouter bateau, vendre bateau, océan indien"/>
     <meta name="description" content="Ajoutez votre bateau à notre catalogue dans l'océan Indien"/>
     <meta charset="UTF-8">
@@ -16,225 +16,262 @@
     <!--[if lt IE 9]>
 </head>
 <body>
+    <!-- Overlay de chargement -->
+    <div id="loading-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 9999; justify-content: center; align-items: center;">
+        <div style="background-color: white; padding: 20px; border-radius: 5px;">
+            <p>Chargement en cours...</p>
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Chargement...</span>
+            </div>
+        </div>
+    </div>
+    
     <main class="add-boat">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <h1>Ajouter un nouveau bateau</h1>
-                    <form id="add-boat-form" class="boat-form">
-                        <!-- Informations générales -->
-                        <div class="form-section">
-                            <h2>Informations générales</h2>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="boat-name">Nom du bateau</label>
-                                        <input type="text" class="form-control" id="boat-name" name="boat-name" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="boat-type">Type de bateau</label>
-                                        <select class="form-control" id="boat-type" name="boat-type" required>
-                                            <option value="">Sélectionnez un type</option>
-                                            <option value="monocoque">Monocoque</option>
-                                            <option value="multicoque">Multicoque</option>
-                                            <option value="moteur">Bateau à moteur</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="boat-length">Longueur (en pieds)</label>
-                                        <input type="number" class="form-control" id="boat-length" name="boat-length" min="0" max="100" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="boat-year">Année de construction</label>
-                                        <input type="number" class="form-control" id="boat-year" name="boat-year" min="1900" max="2024" required>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-ship"></i> Confiez-nous votre bateau</h3>
                         </div>
+                        <div class="panel-body">
+                            <div class="alert alert-info" role="alert">
+                                <h4><i class="fa fa-info-circle"></i> Notre service de courtage</h4>
+                                <p>Vous souhaitez vendre votre bateau ? Confiez-le à notre service de courtage professionnel et bénéficiez de ces avantages :</p>
+                                <ul>
+                                    <li><strong>Marketing professionnel</strong> : Photos de qualité et description détaillée</li>
+                                    <li><strong>Large visibilité</strong> : Annonce diffusée sur notre plateforme et réseaux partenaires</li>
+                                    <li><strong>Sécurité des transactions</strong> : Nous gérons toutes les démarches administratives</li>
+                                    <li><strong>Gestion des visites</strong> : Nous organisons et animons les visites avec les acheteurs potentiels</li>
+                                    <li><strong>Meilleur prix</strong> : Notre expertise vous aide à obtenir le meilleur prix pour votre bateau</li>
+                                </ul>
+                                <p>Remplissez le formulaire ci-dessous pour nous confier votre bateau. Un de nos experts vous contactera sous 24 heures pour discuter des détails et organiser une visite d'estimation.</p>
+                            </div>
+                            
+                            <!-- Messages d'alerte -->
+                            <div id="error-message" class="alert alert-danger" style="display: none;"></div>
+                            <div id="success-message" class="alert alert-success" style="display: none;"></div>
+                            
+                            <form id="add-boat-form" class="boat-form">
+                                <!-- Informations générales -->
+                                <div class="form-section">
+                                    <h2>Informations générales</h2>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="boat-name">Nom du bateau</label>
+                                                <input type="text" class="form-control" id="boat-name" name="boat-name" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="boat-type">Type de bateau</label>
+                                                <select class="form-control" id="boat-type" name="boat-type" required>
+                                                    <option value="">Sélectionnez un type</option>
+                                                    <option value="monocoque">Monocoque</option>
+                                                    <option value="multicoque">Multicoque</option>
+                                                    <option value="moteur">Bateau à moteur</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="boat-length">Longueur (en pieds)</label>
+                                                <input type="number" class="form-control" id="boat-length" name="boat-length" min="0" max="100" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="boat-year">Année de construction</label>
+                                                <input type="number" class="form-control" id="boat-year" name="boat-year" min="1900" max="2024" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-                        <!-- Caractéristiques -->
-                        <div class="form-section">
-                            <h2>Caractéristiques</h2>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="boat-price">Prix (en €)</label>
-                                        <input type="number" class="form-control" id="boat-price" name="boat-price" min="0" required>
+                                <!-- Caractéristiques -->
+                                <div class="form-section">
+                                    <h2>Caractéristiques</h2>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="boat-price">Prix (en €)</label>
+                                                <input type="number" class="form-control" id="boat-price" name="boat-price" min="0" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="boat-capacity">Capacité d'accueil</label>
+                                                <input type="number" class="form-control" id="boat-capacity" name="boat-capacity" min="1" max="20" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="boat-condition">État du bateau</label>
+                                                <select class="form-control" id="boat-condition" name="boat-condition" required>
+                                                    <option value="">Sélectionnez l'état</option>
+                                                    <option value="neuf">Neuf</option>
+                                                    <option value="occasion">Occasion</option>
+                                                    <option value="renove">Rénové</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="boat-usage">Utilisation prévue</label>
+                                                <select class="form-control" id="boat-usage" name="boat-usage" required>
+                                                    <option value="">Sélectionnez l'utilisation</option>
+                                                    <option value="plaisance">Plaisance</option>
+                                                    <option value="peche">Pêche</option>
+                                                    <option value="exploration">Exploration</option>
+                                                    <option value="charter">Charter</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="boat-capacity">Capacité d'accueil</label>
-                                        <input type="number" class="form-control" id="boat-capacity" name="boat-capacity" min="1" max="20" required>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="boat-condition">État du bateau</label>
-                                        <select class="form-control" id="boat-condition" name="boat-condition" required>
-                                            <option value="">Sélectionnez l'état</option>
-                                            <option value="neuf">Neuf</option>
-                                            <option value="occasion">Occasion</option>
-                                            <option value="renove">Rénové</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="boat-usage">Utilisation prévue</label>
-                                        <select class="form-control" id="boat-usage" name="boat-usage" required>
-                                            <option value="">Sélectionnez l'utilisation</option>
-                                            <option value="plaisance">Plaisance</option>
-                                            <option value="peche">Pêche</option>
-                                            <option value="exploration">Exploration</option>
-                                            <option value="charter">Charter</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <!-- Équipement -->
-                        <div class="form-section">
-                            <h2>Équipement</h2>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="equipment" value="climatisation"> Climatisation
-                                        </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="equipment" value="gps"> GPS
-                                        </label>
+                                <!-- Équipement -->
+                                <div class="form-section">
+                                    <h2>Équipement</h2>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" name="equipment" value="climatisation"> Climatisation
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" name="equipment" value="gps"> GPS
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" name="equipment" value="solaire"> Électricité solaire
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" name="equipment" value="desalinisation"> Désalinisation
+                                                </label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="equipment" value="solaire"> Électricité solaire
-                                        </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="equipment" value="desalinisation"> Désalinisation
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <!-- Localisation -->
-                        <div class="form-section">
-                            <h2>Localisation</h2>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="boat-location">Île</label>
-                                        <select class="form-control" id="boat-location" name="boat-location" required>
-                                            <option value="">Sélectionnez une île</option>
-                                            <option value="reunion">La Réunion</option>
-                                            <option value="maurice">Maurice</option>
-                                            <option value="madagascar">Madagascar</option>
-                                            <option value="seychelles">Seychelles</option>
-                                            <option value="mayotte">Mayotte</option>
-                                        </select>
+                                <!-- Localisation -->
+                                <div class="form-section">
+                                    <h2>Localisation</h2>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="boat-location">Île</label>
+                                                <select class="form-control" id="boat-location" name="boat-location" required>
+                                                    <option value="">Sélectionnez une île</option>
+                                                    <option value="reunion">La Réunion</option>
+                                                    <option value="maurice">Maurice</option>
+                                                    <option value="madagascar">Madagascar</option>
+                                                    <option value="seychelles">Seychelles</option>
+                                                    <option value="mayotte">Mayotte</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="boat-port">Port d'attache</label>
+                                                <input type="text" class="form-control" id="boat-port" name="boat-port" required>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="boat-port">Port d'attache</label>
-                                        <input type="text" class="form-control" id="boat-port" name="boat-port" required>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <!-- Photos -->
-                        <div class="form-section">
-                            <h2>Photos du bateau</h2>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="boat-photos">Photos du bateau</label>
-                                        <input type="file" class="form-control" id="boat-photos" name="boat-photos" multiple accept="image/*" required>
+                                <!-- Photos -->
+                                <div class="form-section">
+                                    <h2>Photos du bateau</h2>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="boat-images">Photos du bateau</label>
+                                                <input type="file" class="form-control" id="boat-images" name="boat-images" multiple accept="image/*" required>
+                                            </div>
+                                            <div id="image-preview-container" class="photo-preview"></div>
+                                        </div>
                                     </div>
-                                    <div id="photo-preview" class="photo-preview"></div>
                                 </div>
-                            </div>
-                        </div>
 
-                        <!-- Description -->
-                        <div class="form-section">
-                            <h2>Description</h2>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="boat-description">Description détaillée</label>
-                                        <textarea class="form-control" id="boat-description" name="boat-description" rows="5" required></textarea>
+                                <!-- Description -->
+                                <div class="form-section">
+                                    <h2>Description</h2>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="boat-description">Description détaillée</label>
+                                                <textarea class="form-control" id="boat-description" name="boat-description" rows="5" required></textarea>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
 
-                        <!-- Contact -->
-                        <div class="form-section">
-                            <h2>Contact</h2>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="contact-name">Nom complet</label>
-                                        <input type="text" class="form-control" id="contact-name" name="contact-name" required>
+                                <!-- Contact -->
+                                <div class="form-section">
+                                    <h2>Contact</h2>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="contact-name">Nom complet</label>
+                                                <input type="text" class="form-control" id="contact-name" name="contact-name" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="contact-email">Email</label>
+                                                <input type="email" class="form-control" id="contact-email" name="contact-email" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="contact-phone">Téléphone</label>
+                                                <input type="tel" class="form-control" id="contact-phone" name="contact-phone" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="contact-preferred">Méthode de contact préférée</label>
+                                                <select class="form-control" id="contact-preferred" name="contact-preferred" required>
+                                                    <option value="">Sélectionnez une méthode</option>
+                                                    <option value="email">Email</option>
+                                                    <option value="phone">Téléphone</option>
+                                                    <option value="whatsapp">WhatsApp</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="contact-email">Email</label>
-                                        <input type="email" class="form-control" id="contact-email" name="contact-email" required>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="contact-phone">Téléphone</label>
-                                        <input type="tel" class="form-control" id="contact-phone" name="contact-phone" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="contact-preferred">Méthode de contact préférée</label>
-                                        <select class="form-control" id="contact-preferred" name="contact-preferred" required>
-                                            <option value="">Sélectionnez une méthode</option>
-                                            <option value="email">Email</option>
-                                            <option value="phone">Téléphone</option>
-                                            <option value="whatsapp">WhatsApp</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="form-actions">
-                            <button type="submit" class="btn btn-primary">Publier l'annonce</button>
-                            <button type="reset" class="btn btn-default">Réinitialiser</button>
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary">Publier l'annonce</button>
+                                    <button type="reset" class="btn btn-default">Réinitialiser</button>
+                                </div>
+                            </form>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
+
+    <footer>
+        <!-- ... existing code ... -->
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

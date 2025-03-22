@@ -4,12 +4,36 @@
     background-color: #f8f9fa;
 }
 
+/* Correction des problèmes de clearfix */
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Restauration des floats Bootstrap pour desktop */
+@media (min-width: 769px) {
+    .boats-listing .col-md-3 {
+        float: left;
+        width: 25%;
+    }
+    .boats-listing .col-md-9 {
+        float: left;
+        width: 75%;
+    }
+    .boats-listing .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
 /* Panel des filtres */
 .filters-panel {
     background: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
 }
 
 .filters-panel h3 {
@@ -57,6 +81,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 30px;
+    width: 100%;
 }
 
 /* Carte de bateau */
@@ -66,6 +91,9 @@
     overflow: hidden;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .boat-card:hover {
@@ -75,6 +103,7 @@
 .boat-image {
     height: 200px;
     overflow: hidden;
+    width: 100%;
 }
 
 .boat-image img {
@@ -90,6 +119,9 @@
 
 .boat-info {
     padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .boat-info h3 {
@@ -131,14 +163,13 @@
     text-transform: uppercase;
     font-weight: 500;
     letter-spacing: 1px;
+    margin-top: auto;
 }
 
 /* Bouton Filtres pour mobile */
 .mobile-filters-button-container {
     display: none;
     margin-bottom: 20px;
-    z-index: 100;
-    position: relative;
 }
 
 .mobile-filters-btn {
@@ -153,11 +184,6 @@
     text-align: center;
     font-weight: 500;
     transition: background-color 0.3s ease;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    z-index: 100;
-    position: relative;
 }
 
 .mobile-filters-btn:hover, .mobile-filters-btn:focus {
@@ -170,8 +196,59 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+    /* Masquer les filtres par défaut sur mobile */
+    #filtersContainer {
+        display: none;
+    }
+    
+    /* Afficher les filtres quand la classe is-visible est ajoutée */
+    #filtersContainer.is-visible {
+        display: block;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+    
+    /* Afficher le bouton des filtres sur mobile */
+    .mobile-filters-button-container {
+        display: block;
+    }
+    
+    /* Ajuster la grille pour qu'elle prenne toute la largeur sur mobile */
     .boats-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0;
+        width: 100%;
+    }
+    
+    /* S'assurer que les cartes prennent toute la largeur sur mobile */
+    .boat-card {
+        width: 100%;
+        margin: 0 auto 20px;
+        max-width: 100%;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    }
+    
+    .boat-image {
+        height: 180px;
+    }
+    
+    .boat-info {
+        padding: 15px;
+    }
+    
+    .boat-info h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    
+    .boat-details {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .boat-price .price {
+        font-size: 18px;
     }
     
     .filter-section input[type="number"] {
@@ -185,47 +262,49 @@
         margin: 5px 0;
     }
     
-    /* Afficher le bouton Filtres sur mobile */
-    .mobile-filters-button-container {
-        display: block;
-    }
-    
-    /* Masquer les filtres par défaut sur mobile */
-    .col-md-3 {
-        display: none;
-    }
-    
-    /* Afficher les filtres quand la classe is-visible est ajoutée */
-    .col-md-3.is-visible {
-        display: block;
-        width: 100%;
-        margin-bottom: 20px;
-    }
-    
-    /* S'assurer que la colonne des bateaux est toujours visible */
+    /* Ajustements pour le conteneur des bateaux */
     .col-md-9 {
-        display: block !important;
-        width: 100%;
-        clear: both;
-        float: none;
-        margin-top: 20px;
+        padding: 0 10px !important;
+        width: 100% !important;
+        float: none !important;
     }
     
-    /* Réorganiser les éléments pour mobile */
+    /* Ajustements pour la ligne */
     .boats-listing .row {
-        display: flex;
-        flex-direction: column;
+        margin: 0 !important;
+    }
+}
+
+/* Pour les très petits écrans */
+@media (max-width: 480px) {
+    .boats-listing {
+        padding: 20px 0;
     }
     
-    .boats-listing .mobile-filters-button-container {
-        order: 1;
+    .boats-grid {
+        padding: 0;
+        margin: 0;
     }
     
-    .boats-listing .col-md-3 {
-        order: 2;
+    .boat-card {
+        margin-bottom: 15px;
+        border-radius: 6px;
     }
     
-    .boats-listing .col-md-9 {
-        order: 3;
+    .boat-image {
+        height: 160px;
+    }
+    
+    .boat-details span {
+        font-size: 12px;
+    }
+    
+    .boat-info {
+        padding: 12px;
+    }
+    
+    .boat-card .btn-primary {
+        padding: 8px;
+        font-size: 14px;
     }
 } 
