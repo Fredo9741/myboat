@@ -1416,4 +1416,139 @@ main {
     .footer-links, .footer-copyright {
         line-height: 1.8;
     }
+}
+
+/* Mobile Header Styles - New simplified version */
+.mobile-header {
+    display: none;
+    text-align: center;
+    padding: 15px 0;
+    background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+    border-bottom: 3px solid #fdbb27;
+}
+
+.mobile-logo-container {
+    margin-bottom: 15px;
+}
+
+.mobile-logo {
+    max-width: 160px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.mobile-nav-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.mobile-nav-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 33%;
+    padding: 8px 0;
+    border-radius: 8px;
+    background-color: #023f86;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.9em;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.mobile-nav-btn i {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+.mobile-nav-btn span {
+    font-weight: 600;
+}
+
+.mobile-nav-btn:hover, .mobile-nav-btn:active {
+    background-color: #fdbb27;
+    color: #023f86;
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+/* Media queries pour le responsive */
+@media (max-width: 768px) {
+    /* Show mobile header and hide desktop header */
+    .desktop-header {
+        display: none;
+    }
+    
+    .mobile-header {
+        display: block;
+    }
+    
+    /* Header styles */
+    .header-top {
+        padding: 10px 0;
+    }
+
+    .logo-container {
+        text-align: center;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .logo {
+        max-width: 160px;
+        margin: 0 auto;
+        display: block;
+        padding: 5px 0;
+    }
+
+    .header-top .col-md-8 {
+        width: 100%;
+    }
+
+    .topbar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 5px;
+        margin-bottom: 5px;
+        background-color: rgba(2, 63, 134, 0.05);
+        border-radius: 8px;
+    }
+
+    /* Cacher les contacts standard et afficher la version mobile */
+    .contact-info {
+        display: none !important;
+    }
+
+    .mobile-contact-info {
+        display: flex !important;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .language-selector {
+        margin: 0;
+    }
+
+    .language-selector a {
+        padding: 3px 5px;
+    }
+
+    .language-selector a.active {
+        background-color: rgba(253, 187, 39, 0.1);
+        border-radius: 4px;
+        border-bottom: none;
+    }
+
+    .language-selector img {
+        width: 25px;
+        height: auto;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        border-radius: 50%;
+    }
 } 
